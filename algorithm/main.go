@@ -28,3 +28,21 @@ func BinarySearch(array []int, key int) (index int) {
 	}
 	return index
 }
+
+// BubbleSort sort array in ascending order
+func BubbleSort(array []int) []int {
+	length := len(array)
+	swapped := true
+	for swapped {
+		swapped = false
+		for i := 1; i < length; i++ {
+			if array[i-1] > array[i] {
+				temp := array[i-1]
+				array[i-1] = array[i]
+				array[i] = temp
+				swapped = true
+			}
+		}
+	}
+	return array
+}
