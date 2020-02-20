@@ -9,3 +9,6 @@ popular coding challenges solution, it may solve the challenge 100%.. but at lea
 
 ### Google Hash Code Self-driving rides
 [main.go](https://github.com/urbanishimwe/challenges/blob/master/google_hashcode_self_driving_rides/main.go)
+
+### Google Hash Code Photo slideshow
+[main.go](https://github.com/urbanishimwe/challenges/blob/master/google_hash_code_photo_slideshow/main.go)
