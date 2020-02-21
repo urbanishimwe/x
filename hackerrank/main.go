@@ -34,7 +34,7 @@ func DynamicArray(n int, queries [][]int) (answer []int) {
 }
 
 // LeftRotation A left rotation operation on an array of size n shifts each of the array's elements 1 unit to the left. For example, if 2(d) left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].
-func LeftRotation(array []int, n int, d int) {
+func LeftRotation(array []int, n int, d int) []int {
 	// The complexity here is d*(n - 1)
 	for i := 0; i < d; i++ {
 		swap := array[0]
@@ -44,4 +44,18 @@ func LeftRotation(array []int, n int, d int) {
 		array[n-1] = swap
 	}
 	return array
+}
+
+// SparseArrays strings is array to query from, queries is array of those queries to search from strings
+func SparseArrays(strings []string, queries []string) (answer []int) {
+	for _, query := range queries {
+		found := 0
+		for _, matchWith := range strings {
+			if query == matchWith {
+				found++
+			}
+		}
+		answer = append(answer, found)
+	}
+	return answer
 }
