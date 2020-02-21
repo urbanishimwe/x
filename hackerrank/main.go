@@ -17,7 +17,7 @@ func ReverseArray(a []int) []int {
 }
 
 //DynamicArray perform queries on dynamic array
-func dynamicArray(n int, queries [][]int) (answer []int) {
+func DynamicArray(n int, queries [][]int) (answer []int) {
 	lastAnswer := int(0)
 	seqList := make([][]int, n)
 	for _, value := range queries {
@@ -31,4 +31,17 @@ func dynamicArray(n int, queries [][]int) (answer []int) {
 		}
 	}
 	return answer
+}
+
+// LeftRotation A left rotation operation on an array of size n shifts each of the array's elements 1 unit to the left. For example, if 2(d) left rotations are performed on array [1, 2, 3, 4, 5], then the array would become [3, 4, 5, 1, 2].
+func LeftRotation(array []int, n int, d int) {
+	// The complexity here is d*(n - 1)
+	for i := 0; i < d; i++ {
+		swap := array[0]
+		for j := 0; j < n-1; j++ {
+			array[j] = array[j+1]
+		}
+		array[n-1] = swap
+	}
+	return array
 }
