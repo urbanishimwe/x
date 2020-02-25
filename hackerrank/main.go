@@ -59,3 +59,18 @@ func SparseArrays(strings []string, queries []string) (answer []int) {
 	}
 	return answer
 }
+
+// ArrayManipulation Array Manipulation challenges for small dataset
+func ArrayManipulation(n int, queries [][]int) (answer int) {
+	lastArray := make([]int, n)
+	for _, value := range queries {
+		a, b, k := value[0], value[1], value[2]
+		for i := a - 1; i < b; i++ {
+			lastArray[i] += k
+			if lastArray[i] > answer {
+				answer = lastArray[i]
+			}
+		}
+	}
+	return answer
+}
