@@ -15,3 +15,5 @@ popular coding challenges solution, it may solve the challenge 100%.. but at lea
 - ### [Sorting and Search Algorithm](https://github.com/urbanishimwe/challenges/blob/master/algorithm/main.go)
 
 - ### [Hackerrank Practice](https://github.com/urbanishimwe/challenges/blob/master/hackerrank/main.go)
+
+- ### [Data Structure](https://github.com/urbanishimwe/ds/blob/master/hackerrank/main.go)
