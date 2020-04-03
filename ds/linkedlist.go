@@ -1,55 +1,46 @@
-package linkedlist
+package ds
 
 import (
 	"bufio"
-	"fmt"
 	"io"
 	"os"
 	"strconv"
 	"strings"
 )
 
-type SinglyLinkedListNode struct {
-	data int32
-	next *SinglyLinkedListNode
+// Any means any tipe can be added
+type Any interface{}
+
+// ListNode hold all nodes in a linkedlist
+type ListNode struct {
+	data Any
+	next *ListNode
 }
 
-type SinglyLinkedList struct {
-	head *SinglyLinkedListNode
-	tail *SinglyLinkedListNode
+// List every linkedlist have head and tail node
+type List struct {
+	head *ListNode
+	tail *ListNode
 }
 
-func (singlyLinkedList *SinglyLinkedList) insertNodeIntoSinglyLinkedList(nodeData int32) {
-	node := &SinglyLinkedListNode{
+func (List *List) insert(nodeData Any) {
+	node := &ListNode{
 		next: nil,
 		data: nodeData,
 	}
 
-	if singlyLinkedList.head == nil {
-		singlyLinkedList.head = node
+	if List.head == nil {
+		List.head = node
 	} else {
-		singlyLinkedList.tail.next = node
+		List.tail.next = node
 	}
 
-	singlyLinkedList.tail = node
+	List.tail = node
 }
 
-// Complete the printLinkedList function below.
-
-/*
- * For your reference:
- *
- * SinglyLinkedListNode {
- *     data int32
- *     next *SinglyLinkedListNode
- *
- *
- */
-func printLinkedList(head *SinglyLinkedListNode) {
-	data := head
-	for ; data != nil; data = data.next {
-		fmt.Println(data.data)
-	}
+// LinkedList return new LinkedList
+func LinkedList() List {
+	return List{}
 }
 
 func main() {
@@ -58,7 +49,7 @@ func main() {
 	llistCount, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
 
-	llist := SinglyLinkedList{}
+	llist := List{}
 	for i := 0; i < int(llistCount); i++ {
 		llistItemTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 		checkError(err)

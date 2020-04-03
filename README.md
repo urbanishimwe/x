@@ -12,8 +12,10 @@ popular coding challenges solution, it may solve the challenge 100%.. but at lea
 
 - ### [Google Hash Code Photo slideshow](https://github.com/urbanishimwe/challenges/blob/master/google_hash_code_photo_slideshow/main.go)
 
+- ### [Google Kick Start - Round A 2020](https://github.com/urbanishimwe/challenges/blob/master/google_kick_start_round_a_2020)
+
 - ### [Sorting and Search Algorithm](https://github.com/urbanishimwe/challenges/blob/master/algorithm/main.go)
 
 - ### [Hackerrank Practice](https://github.com/urbanishimwe/challenges/blob/master/hackerrank/main.go)
 
-- ### [Data Structure](https://github.com/urbanishimwe/ds/blob/master/hackerrank/main.go)
+- ### [Data Structure](https://github.com/urbanishimwe/challenges/blob/master/hackerrank/main.go)
