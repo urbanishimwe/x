@@ -1,5 +1,10 @@
 package hackerrank
 
+import (
+	"strconv"
+	"strings"
+)
+
 // ReverseArray in a very optim way
 func ReverseArray(a []int) []int {
 	length := len(a)
@@ -73,4 +78,23 @@ func ArrayManipulation(n int, queries [][]int) (answer int) {
 		}
 	}
 	return answer
+}
+
+// TimeConversion Given a time in 12-hour AM/PM format, convert it to military (24-hour) time.
+func TimeConversion(s string) string {
+	s = strings.Trim(s, " \n\r")
+	amp := s[len(s)-2:]
+	h := s[0:2]
+	s = strings.Replace(s, amp, "", 1)
+	if amp == "AM" {
+		if h == "12" {
+			return strings.Replace(s, h, "00", 1)
+		}
+		return s
+	}
+	if h == "12" {
+		return s
+	}
+	i, _ := strconv.Atoi(h)
+	return strings.Replace(s, h, strconv.Itoa(i+12), 1)
 }
