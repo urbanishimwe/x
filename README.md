@@ -18,4 +18,4 @@ popular coding challenges solution, it may solve the challenge 100%.. but at lea
 
 - ### [Hackerrank Practice](https://github.com/urbanishimwe/challenges/blob/master/hackerrank/main.go)
 
-- ### [Data Structure](https://github.com/urbanishimwe/challenges/blob/master/hackerrank/main.go)
+- ### [Data Structure](https://github.com/urbanishimwe/go.ds)

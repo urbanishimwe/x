@@ -1,12 +1,12 @@
 package main
 
 import (
+	"io"
 	"io/ioutil"
 	"math"
+	"os"
 	"strconv"
 	"strings"
-	"os"
-	"io"
 )
 
 // Input attributes
@@ -69,16 +69,16 @@ func ReadInputIntoVariable(file string) {
 // GroupVerticalPhoto we form new slide or we add to existing slide
 func GroupVerticalPhoto(photo Slide, at int) {
 	var (
-		itsIndex = -1
-		min = 0
-		found = false
-		commonTags []string
+		itsIndex    = -1
+		min         = 0
+		found       = false
+		commonTags  []string
 		tagsInAOnly []string
 		tagsInBOnly []string
 	)
 	for index, value := range slides {
 		if value.point == 'V' && len(value.pic) < 2 {
-			if itsIndex == -1{
+			if itsIndex == -1 {
 				itsIndex = index
 				found = true
 			}
@@ -138,7 +138,7 @@ func JoinTags(a []string, b []string) []string {
 }
 
 // Min in an array
-func Min(a []int) (min int){
+func Min(a []int) (min int) {
 	min = a[0]
 	for _, value := range a {
 		if value < min {
@@ -161,7 +161,7 @@ func RemoveSlideWithSingleVerticalPic() (answer []Slide) {
 }
 
 // RateMostInterestingSlide before putting slide in the next queue we need to check how it is interesting with regarding to itsprev slide
-func RateMostInterestingSlide(prev Slide, from int, to int) (index int){
+func RateMostInterestingSlide(prev Slide, from int, to int) (index int) {
 	var (
 		commonTags int
 		inPrevOnly int
@@ -183,7 +183,7 @@ func RateMostInterestingSlide(prev Slide, from int, to int) (index int){
 }
 
 // WriteAnswerToOuputFile flush answer to ouput file
-func WriteAnswerToOuputFile(filePath string) (err error){
+func WriteAnswerToOuputFile(filePath string) (err error) {
 	var (
 		file *os.File
 		data string

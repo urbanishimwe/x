@@ -1,11 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"path"
 	"path/filepath"
 	"runtime"
-	"fmt"
 )
 
 var input Input
@@ -31,7 +31,7 @@ func Algorithm(file string) {
 	// Putting slides in an interesting order
 	for count := 1; count < len(slides); count++ {
 		to := count + 499 // Minimize slideshow's complexity by making group of 500 slides
-		winner := RateMostInterestingSlide(slides[count -1], count, to)
+		winner := RateMostInterestingSlide(slides[count-1], count, to)
 		temp := slides[count]
 		slides[count] = slides[winner]
 		slides[winner] = temp
