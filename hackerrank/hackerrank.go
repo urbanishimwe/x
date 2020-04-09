@@ -98,3 +98,19 @@ func TimeConversion(s string) string {
 	i, _ := strconv.Atoi(h)
 	return strings.Replace(s, h, strconv.Itoa(i+12), 1)
 }
+
+// GradingStudents https://www.hackerrank.com/challenges/grading/problem
+func GradingStudents(gr []int) []int {
+	r := make([]int, len(gr))
+	for _, v := range gr {
+		if v >= 35 {
+			mod := v % 5
+			nx := v + 5 - mod
+			if (nx - v) < 3 {
+				v = nx
+			}
+		}
+		r = append(r, v)
+	}
+	return r
+}
