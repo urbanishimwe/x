@@ -2,21 +2,19 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 )
 
 func condition(a string, b string) bool {
 	l := len(a)
-	j := l - 1
-	for i := 0; i < j; i++ {
-		c1 := a[i] == a[j] && b[i] == b[j]
-		c2 := a[i] != a[j] && b[i] != b[j]
-		if !(c1 || c2) {
-			return false
+	for i := 0; i < l; i++ {
+		for j := i + 1; j < l; j++ {
+			c1 := a[i] == a[j] && b[i] == b[j]
+			c2 := a[i] != a[j] && b[i] != b[j]
+			if !(c1 || c2) {
+				return false
+			}
 		}
-		j--
 	}
 	return true
 }
@@ -49,20 +47,19 @@ func similarStrings(s string, n int, q int, queries [][2]int) (answer []int) {
 func main() {
 	var N, Q int
 	var S string
-	file, _ := os.Open("input.in")
-	stdin := bufio.NewReader(file)
-	fmt.Fscanf(stdin, "%d %d", &N, &Q)
-	fmt.Fscan(stdin, &S)
+	fmt.Scanf("%d %d", &N, &Q)
+	fmt.Scan(&S)
 	if len(S) != N {
 		panic("bad input!")
 	}
 	Queries := make([][2]int, Q)
 	for i := 0; i < Q; i++ {
 		var r, l int
-		fmt.Fscanf(stdin, "\n%d %d", &r, &l)
+		fmt.Scanf("%d %d", &r, &l)
 		Queries[i] = [2]int{r, l}
 	}
 	result := similarStrings(S, N, Q, Queries)
+
 	for _, v := range result {
 		fmt.Printf("%d\n", v)
 	}
