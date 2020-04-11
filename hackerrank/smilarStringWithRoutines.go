@@ -1,13 +1,15 @@
 // For Problem description look in the PDF similar-strings.pdf in the current directory
+// still some improvement
 package main
 
 import (
 	"fmt"
 	"strings"
+	"sync"
 )
 
 var Answer []string
-var Found int
+var wg sync.WaitGroup
 
 func condition(a string, b string) bool {
 	l := len(a)
@@ -27,13 +29,14 @@ func condition(a string, b string) bool {
  * Complete the similarStrings function below.
  */
 func similarStrings(s string, n int, q int, queries [][2]int) {
+	wg.Add(q)
 	for i := 0; i < q; i++ {
 		go func(i int) {
 			rl := s[queries[i][0]-1 : queries[i][1]]
 			l := len(rl)
 			if l == 1 {
 				Answer[i] = fmt.Sprintf("%d", n)
-				Found++
+				wg.Done()
 				return
 			}
 			var xy string
@@ -46,9 +49,10 @@ func similarStrings(s string, n int, q int, queries [][2]int) {
 				j++
 			}
 			Answer[i] = fmt.Sprintf("%d", found)
-			Found++
+			wg.Done()
 		}(i)
 	}
+	wg.Wait()
 }
 
 func main() {
@@ -67,10 +71,5 @@ func main() {
 		Queries[i] = [2]int{r, l}
 	}
 	similarStrings(S, N, Q, Queries)
-	for {
-		if Found == Q {
-			break
-		}
-	}
 	fmt.Print(strings.Join(Answer, "\n"))
 }

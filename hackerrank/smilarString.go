@@ -1,4 +1,5 @@
 // Problem description look in the PDF current directory, similar-strings.pdf
+// still some improvement
 package main
 
 import (
