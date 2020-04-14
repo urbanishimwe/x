@@ -1,6 +1,7 @@
 package algorithm
 
-// BinarySearch perform binary search, check for second bool return value
+// BinarySearch perform binary search, returns index of the element and bool which indicate
+// if the element was found
 func BinarySearch(array []int, key int) (index int, found bool) {
 	if len(array) == 0 {
 		return
@@ -35,9 +36,7 @@ func BubbleSort(array []int) []int {
 		swapped = false
 		for i := 1; i < length; i++ {
 			if array[i-1] > array[i] {
-				temp := array[i-1]
-				array[i-1] = array[i]
-				array[i] = temp
+				array[i-1], array[i] = array[i], array[i-1]
 				swapped = true
 			}
 		}
