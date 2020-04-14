@@ -1,17 +1,15 @@
 package algorithm
 
-// BinarySearch perform binary search on an array returns -1 if key is not found
-func BinarySearch(array []int, key int) (index int) {
+// BinarySearch perform binary search, check for second bool return value
+func BinarySearch(array []int, key int) (index int, found bool) {
 	if len(array) == 0 {
-		return -1
+		return
 	}
 	var (
 		mid   = len(array) / 2
 		low   = 0
 		high  = len(array)
-		found = false
 	)
-	index = -1
 	for !found {
 		if array[mid] > key {
 			high = mid
@@ -26,7 +24,7 @@ func BinarySearch(array []int, key int) (index int) {
 			break
 		}
 	}
-	return index
+	return
 }
 
 // BubbleSort sort array in ascending order
