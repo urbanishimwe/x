@@ -1,12 +1,11 @@
-// question description at https://www.hackerrank.com/challenges/apple-and-orange/problem
-package main
+package hackerrank
 
 import (
 	"fmt"
 )
 
 // question description at https://www.hackerrank.com/challenges/apple-and-orange/problem
-func main() {
+func apple() {
 	var S, T, A, B, M, N int
 	fmt.Scan(&S, &T, &A, &B, &M, &N)
 	Apple := make([]int, M)
@@ -27,5 +26,4 @@ func main() {
 	}
 	fmt.Println(appleOnHouse)
 	fmt.Println(orangeOnHouse)
-
 }

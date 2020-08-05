@@ -1,14 +1,9 @@
-package main
+package hackerrank
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
-	"sync"
 )
-
-var S []string
-var wg sync.WaitGroup
 
 func match(sub string, v string) bool {
 	var x int
@@ -44,22 +39,4 @@ func virusIndices(p string, v string) string {
 		return "No Match!"
 	}
 	return strings.Trim(s, " ")
-}
-
-func main() {
-	var T int
-	fmt.Scan(&T)
-	wg.Add(T)
-	S = make([]string, T)
-	for i := 0; i < T; i++ {
-		var P, V string
-		fmt.Scan(&P, &V)
-		go func(i int) {
-			s := virusIndices(P, V)
-			S[i] = s
-			wg.Done()
-		}(i)
-	}
-	wg.Wait()
-	fmt.Println(strings.Join(S, "\n"))
 }
